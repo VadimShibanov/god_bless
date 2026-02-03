@@ -6,13 +6,15 @@ import lombok.experimental.FieldDefaults;
 
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Task implements Runnable {
+class Task implements Runnable {
+
     String name;
+
     String task;
 
     @Override
     public void run() {
-        System.out.println("Task " + task + " started");
+        System.out.println("Task " + task + " started " + "by " + name);
         try {
             Thread.sleep(300);
             System.out.println(task + " finished");
