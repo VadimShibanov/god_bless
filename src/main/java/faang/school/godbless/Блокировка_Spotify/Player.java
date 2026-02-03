@@ -7,7 +7,9 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 public class Player {
+
     final Object lock;
+
     String isPlaying;
 
     void previous() {

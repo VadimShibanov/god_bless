@@ -1,10 +1,10 @@
 package faang.school.godbless.–аспределенна€_арми€_героев_меча_и_магии;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 
 @AllArgsConstructor
-@Data
-public abstract class Subdivisions {
-    int power;
+@Getter
+abstract class Subdivisions {
+    private int power;
 }

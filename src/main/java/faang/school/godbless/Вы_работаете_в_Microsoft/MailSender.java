@@ -19,6 +19,5 @@ public class MailSender {
         threadFour.join();
         threadFive.join();
         System.out.println("All of letters are send");
-
     }
 }

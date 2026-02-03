@@ -9,7 +9,9 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class SenderRunnable implements Runnable {
+
     int startIndex;
+
     int endIndex;
 
     @Override

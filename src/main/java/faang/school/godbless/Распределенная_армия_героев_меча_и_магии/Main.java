@@ -1,13 +1,20 @@
 package faang.school.godbless.Распределенная_армия_героев_меча_и_магии;
 
-public class Main {
-    public static void main(String[] args) {
-        Army army = new Army();
-        army.addUnit(new Archer(25));
-        army.addUnit(new Swordsman(40));
-        army.addUnit(new Mage(50));
-        army.addUnit(new Mage(20));
+import java.util.List;
 
-        System.out.println("Total army power: " + army.calculateTotalPower());
+class Main {
+    public static void main(String[] args) throws InterruptedException {
+        Squad archers = new Squad("Лучники", List.of(new Archer(25), new Archer(30)));
+        Squad swordsmen = new Squad("Мечники", List.of(new Swordsman(40), new Swordsman(35)));
+        Squad mages = new Squad("Маги", List.of(new Mage(50), new Mage(45)));
+
+        Army army = new Army();
+
+        army.addSquad(archers);
+        army.addSquad(swordsmen);
+        army.addSquad(mages);
+
+        int totalPower = army.calculateTotalPower();
+        System.out.println("Общая сила армии: " + totalPower);
     }
 }

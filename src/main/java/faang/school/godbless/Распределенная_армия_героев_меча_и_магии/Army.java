@@ -1,29 +1,28 @@
 package faang.school.godbless.–аспределенна€_арми€_героев_меча_и_магии;
 
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class Army {
-    static final List<Subdivisions> SUBDIVISIONS = new ArrayList<>();
-    Integer result = 0;
+class Army {
+    private List<Squad> squads = new ArrayList<>();
+    private int result = 0;
 
-    int calculateTotalPower() {
-        ExecutorService executorService = Executors.newFixedThreadPool(SUBDIVISIONS.size());
-        for (Subdivisions subdivision : SUBDIVISIONS) {
-            executorService.submit(() -> result += subdivision.getPower());
+    int calculateTotalPower() throws InterruptedException {
+        List<Thread> threads = new ArrayList<>();
+        for (Squad squad : squads) {
+            Thread thread = new Thread(() -> result += squad.calculateSquadPower());
+            thread.start();
+            threads.add(thread);
         }
-        executorService.shutdown();
+
+        for (Thread thread : threads) {
+            thread.join();
+        }
         return result;
     }
 
-    void addUnit(Subdivisions subdivision) {
-        SUBDIVISIONS.add(subdivision);
+    void addSquad(Squad squad) {
+        squads.add(squad);
     }
 }
