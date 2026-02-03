@@ -1,17 +1,14 @@
 package faang.school.godbless.They_were_very_nice_but_extremely_poor;
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.experimental.FieldDefaults;
 
 @AllArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class Chore implements Runnable {
+class Chore implements Runnable {
     String chore;
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName());
+        System.out.println(chore);
         try {
             Thread.sleep(300);
         } catch (InterruptedException e) {
