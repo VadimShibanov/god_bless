@@ -2,18 +2,19 @@ package faang.school.godbless.Накормите_Питера_Гриффина;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
-@Data
+
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class FoodDeliveryTask implements Runnable {
+class FoodDeliveryTask implements Runnable {
+
     String character;
+
     int foodAmount;
 
     @Override
